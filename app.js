@@ -4,9 +4,15 @@ let roundScore = 0;
 let playerScore = 0;
 let currentDieRoll = 0;
 let roundScores = [0]; //starting score is 0
-let numberOfRounds = 10;
+let numberOfPhases = 4;
 
-let NUMBER_OF_PHASES = 4;
+sessionStorage.setItem("roundCount", 10);
+
+console.log(sessionStorage.getItem("roundCount"));
+
+let numberOfRounds = Number(sessionStorage.getItem("roundCount"));
+
+console.log(numberOfRounds);
 
 let currentPhaseDisplay = document.querySelector("#current-phase");
 let currentRoundDisplay = document.querySelector("#current-round");
@@ -16,7 +22,7 @@ let undoButton = document.querySelector("#undo");
 let stopButton = document.querySelector("#stop");
 
 function endGame() {
-
+    document.querySelector("body").textContent = `Final Score: ${playerScore}`;
 }
 
 function incrementRoundScore() {
@@ -39,9 +45,9 @@ function incrementRoundScore() {
         case "3": 
             roundScoreIncrease = 3;
             break;
-        case "4": 
+        case "4":
             roundScore = 0;
-            roundScores.push(roundScore);
+            roundScores.push("Bust!");
             stop();
             return;
         case "5":
@@ -55,7 +61,6 @@ function incrementRoundScore() {
     }
     roundScore += roundScoreIncrease;
     roundScores.push(roundScore);
-    console.log(roundScores);
 }
 
 function undo() {
@@ -67,7 +72,7 @@ function undo() {
             } else {
                 currentRound--;
             }
-            if (roundScores[roundScores.length - 2] === 0) {
+            if (roundScores[roundScores.length - 2] === "Bust!") {
                 roundScores.pop(); //intentional; you should need to pop() twice total in this function for this condition
             } else {
                 playerScore -= roundScores[roundScores.length - 2];
@@ -76,7 +81,6 @@ function undo() {
         roundScores.pop();
         roundScore = roundScores[roundScores.length - 1];
     }
-    console.log(roundScores);
 }
 
 function stop() {
@@ -87,13 +91,12 @@ function stop() {
         if (currentPhase === numberOfPhases) {
             endGame();
         } else {
-            currentRound = 0;
+            currentRound = 1;
             currentPhase++;
         }
     } else {
         currentRound++;
     }
-    console.log(roundScores);
 }
 
 undoButton.addEventListener("click", function () {
