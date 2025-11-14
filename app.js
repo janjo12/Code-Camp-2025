@@ -3,60 +3,88 @@ let currentRound = 1;
 let roundScore = 0;
 let playerScore = 0;
 let currentDieRoll = 0;
+let roundScores = [0]; //starting score is 0
+let numberOfRounds = 10;
 
 let NUMBER_OF_PHASES = 4;
-let NUMBER_OF_ROUNDS = 10;
 
 let currentPhaseDisplay = document.querySelector("#current-phase");
 let currentRoundDisplay = document.querySelector("#current-round");
-let currentDieRollDisplay = document.querySelector("#current-die-roll");
 let roundScoreDisplay = document.querySelector("#current-round-score");
 let playerScoreDisplay = document.querySelector("#player-score");
-let stopButton = document.querySelector("#out");
+let undoButton = document.querySelector("#undo");
+let stopButton = document.querySelector("#stop");
 
 function endGame() {
 
 }
 
 function incrementRoundScore() {
+    let roundScoreIncrease = 0;
     switch (currentDieRoll) {
         case "1":
             if (currentPhase >= 3) {
-                roundScore += 100;
+                roundScoreIncrease = 100;
             } else {
-                roundScore += 1;
+                roundScoreIncrease = 1;
             }
             break;
         case "2":
             if (currentPhase === 4) {
-                roundScore *= 2;
+                roundScoreIncrease = roundScore;
             } else {
-                roundScore += 2;
+                roundScoreIncrease = 2;
             }
             break;
         case "3": 
-            roundScore += 3;
+            roundScoreIncrease = 3;
             break;
         case "4": 
             roundScore = 0;
+            roundScores.push(roundScore);
             stop();
-            break;
+            return;
         case "5":
             if (currentPhase >= 2) {
-                roundScore += 50;
+                roundScoreIncrease= 50;
             } else {
-                roundScore += 5;
+                roundScoreIncrease = 5;
             }
             break;
-        case "6": roundScore += 6;
+        case "6": roundScoreIncrease = 6;
     }
+    roundScore += roundScoreIncrease;
+    roundScores.push(roundScore);
+    console.log(roundScores);
+}
+
+function undo() {
+    if (roundScores.length > 1) {
+        if (roundScores[roundScores.length - 1] === 0) {
+            if (currentRound === 1) {
+                currentPhase--;
+                currentRound = numberOfRounds;
+            } else {
+                currentRound--;
+            }
+            if (roundScores[roundScores.length - 2] === 0) {
+                roundScores.pop(); //intentional; you should need to pop() twice total in this function for this condition
+            } else {
+                playerScore -= roundScores[roundScores.length - 2];
+            }
+        }
+        roundScores.pop();
+        roundScore = roundScores[roundScores.length - 1];
+    }
+    console.log(roundScores);
 }
 
 function stop() {
     playerScore += roundScore;
     roundScore = 0;
-    if (currentRound === NUMBER_OF_ROUNDS) {
-        if (currentPhase === NUMBER_OF_PHASES) {
+    roundScores.push(roundScore);
+    if (currentRound === numberOfRounds) {
+        if (currentPhase === numberOfPhases) {
             endGame();
         } else {
             currentRound = 0;
@@ -65,18 +93,22 @@ function stop() {
     } else {
         currentRound++;
     }
-    canRoll = true;
+    console.log(roundScores);
 }
+
+undoButton.addEventListener("click", function () {
+    undo();
+});
+
+stopButton.addEventListener("click", function () {
+    stop();
+});
 
 document.querySelectorAll(".die-face-value").forEach((button) => (button.addEventListener("click", function () {
     let thisRoll = button.id.slice(-1);
     currentDieRoll = thisRoll;
     incrementRoundScore();
 })));
-
-stopButton.addEventListener("click", function () {
-    stop();
-});
 
 function updateScreen() {
     currentPhaseDisplay.textContent = currentPhase;
