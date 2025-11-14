@@ -7,23 +7,24 @@ body {
     min-height: 100vh;
     width: 100%;
     background-color: #fee876;
+    font-family: "Luckiest Guy", cursive;
 }
 
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 40vh 25vh 2rem 5vh 5vh 5vh;
+    grid-template-rows: auto auto auto auto auto;
     grid-template-areas:
         "logo"
         "mascot"
-        "." /* Empty spacer row */
         "options"
         "startBtn"
         "playBtn";
     grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    height: 90vh;  /* Fixed height */
-    margin-bottom: 2rem;  /* Space below the grid */
+    row-gap: 1rem;
+    min-height: 90vh;
+    margin-bottom: 2rem;
+    padding: 1rem;
 }
 
 .logoContainer {
@@ -58,6 +59,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: clamp(250px, 80vw, 350px);
+    height: clamp(50px, 12vw, 61px);
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #F6F7F9;
+    margin: 0 auto;
+}
+
+.options {
+    background: #F6F7F9;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: clamp(18px, 5vw, 24px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    color: #555;
+    width: 100%;
+    text-align: center;
 }
 
 .startBtnContainer {
@@ -67,9 +90,47 @@ body {
     align-items: center;
 }
 
+.startBtn {
+    border-radius: 21px;
+    background: #F3802F;
+    box-shadow: 0 -6px 0 0 #B94D1B inset;
+    display: flex;
+    width: clamp(250px, 80vw, 350px);
+    height: clamp(50px, 12vw, 59px);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    color: #FFFAFA;
+    font-size: clamp(18px, 5vw, 24px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    border: none;
+    cursor: pointer;
+}
+
 .playBtnContainer {
     grid-area: playBtn;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.playBtn {
+    color: #B94D1B;
+    font-size: clamp(18px, 5vw, 24px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+button, select, input {
+    font-family: inherit;
 }
