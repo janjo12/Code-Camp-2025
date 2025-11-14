@@ -4,6 +4,8 @@ let roundScore = 0;
 let playerScore = 0;
 let currentDieRoll = 0;
 
+let canRoll = true;
+
 let NUMBER_OF_PHASES = 4;
 let NUMBER_OF_ROUNDS = 10;
 
@@ -19,66 +21,63 @@ function endGame() {
 
 }
 
-function convertScore() {
+function incrementRoundScore() {
     switch (currentDieRoll) {
-        case 1:
+        case "1":
             if (currentPhase >= 3) {
                 roundScore += 100;
             } else {
                 roundScore += 1;
             }
-        case 2:
+        case "2":
             if (currentPhase === 4) {
                 roundScore *= 2;
             } else {
                 roundScore += 2;
             }
-        case 3: roundScore += 3;
-        case 4: 
+        case "3": roundScore += 3;
+        case "4": 
             roundScore = 0;
             stop();
-        case 5:
+        case "5":
             if (currentPhase >= 3) {
                 roundScore += 50;
             } else {
                 roundScore += 5;
             }
-        case 6: roundScore += 6;
+        case "6": roundScore += 6;
     }
-    roundScoreDisplay.textContent = roundScore;
+    console.log(roundScore);
+    canRoll = false;
 }
 
 function stop() {
     playerScore += roundScore;
-    playerScoreDisplay.textContent = playerScore;
     roundScore = 0;
     if (currentRound === NUMBER_OF_ROUNDS) {
         if (currentPhase === NUMBER_OF_PHASES) {
             endGame();
         } else {
             currentRound = 0;
-            currentRoundDisplay.textContent = currentRound;
             currentPhase++;
-            currentPhaseDisplay.textContent = currentPhase;
         }
     } else {
         currentRound++;
-        currentRoundDisplay.textContent = currentRound;
     }
-    currentRoundDisplay.textContent = currentRound;
-    roll();
+    canRoll = true;
 }
 
 function stayIn() {
-    
+    canRoll = true;
 }
 
-document.querySelectorAll(".die-face-value").addEventListener("click", function () {
+document.querySelectorAll(".die-face-value").forEach((button) => (button.addEventListener("click", function () {
     if (canRoll) {
-        let thisRoll = this.className.slice(-1, 1);currentDieRoll = thisRoll;
-        convertScore();
+        let thisRoll = button.id.slice(-1);
+        currentDieRoll = thisRoll;
+        incrementRoundScore();
     }
-});
+})));
 
 stopButton.addEventListener("click", function () {
     stop();
@@ -88,4 +87,11 @@ continueButton.addEventListener("click", function () {
     stayIn();
 });
 
-roll();
+function updateScreen() {
+    currentPhaseDisplay.textContent = currentPhase;currentRoundDisplay.textContent = currentRound;currentDieRollDisplay.textContent = currentDieRoll;
+    roundScoreDisplay.textContent = roundScore;playerScoreDisplay.textContent = playerScore;
+}
+
+
+updateScreen();
+//setInterval(updateScreen, 1);
