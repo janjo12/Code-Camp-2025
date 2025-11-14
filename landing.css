@@ -1,0 +1,75 @@
+body {
+    background-image: url("./assets/beach.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #fee876;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40vh 25vh 2rem 5vh 5vh 5vh;
+    grid-template-areas:
+        "logo"
+        "mascot"
+        "." /* Empty spacer row */
+        "options"
+        "startBtn"
+        "playBtn";
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 90vh;  /* Fixed height */
+    margin-bottom: 2rem;  /* Space below the grid */
+}
+
+.logoContainer {
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.logoContainer img {
+    width: clamp(330px, 40vw, 300px);
+    height: auto;
+    max-width: 100%;
+}
+
+.mascotContainer {
+    grid-area: mascot;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mascotContainer img {
+    width: clamp(220px, 40vw, 300px);
+    height: auto;
+    max-width: 100%;
+}
+
+.optionsContainer {
+    grid-area: options;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.startBtnContainer {
+    grid-area: startBtn;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playBtnContainer {
+    grid-area: playBtn;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
