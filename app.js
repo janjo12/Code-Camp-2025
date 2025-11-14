@@ -29,25 +29,30 @@ function incrementRoundScore() {
             } else {
                 roundScore += 1;
             }
+            break;
         case "2":
             if (currentPhase === 4) {
                 roundScore *= 2;
             } else {
                 roundScore += 2;
             }
-        case "3": roundScore += 3;
+            break;
+        case "3": 
+            roundScore += 3;
+            break;
         case "4": 
             roundScore = 0;
             stop();
+            break;
         case "5":
-            if (currentPhase >= 3) {
+            if (currentPhase >= 2) {
                 roundScore += 50;
             } else {
                 roundScore += 5;
             }
+            break;
         case "6": roundScore += 6;
     }
-    console.log(roundScore);
     canRoll = false;
 }
 
@@ -88,10 +93,10 @@ continueButton.addEventListener("click", function () {
 });
 
 function updateScreen() {
-    currentPhaseDisplay.textContent = currentPhase;currentRoundDisplay.textContent = currentRound;currentDieRollDisplay.textContent = currentDieRoll;
-    roundScoreDisplay.textContent = roundScore;playerScoreDisplay.textContent = playerScore;
+    currentPhaseDisplay.textContent = currentPhase;
+    currentRoundDisplay.textContent = currentRound;
+    roundScoreDisplay.textContent = roundScore;
+    playerScoreDisplay.textContent = playerScore;
 }
 
-
-updateScreen();
-//setInterval(updateScreen, 1);
+setInterval(updateScreen, 1);
