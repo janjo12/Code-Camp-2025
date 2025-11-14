@@ -6,8 +6,6 @@ let currentDieRoll = 0;
 let roundScores = [0]; //starting score is 0
 let numberOfPhases = 4;
 
-sessionStorage.setItem("roundCount", 10);
-
 console.log(sessionStorage.getItem("roundCount"));
 
 let numberOfRounds = Number(sessionStorage.getItem("roundCount"));

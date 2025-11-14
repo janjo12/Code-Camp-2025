@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="landing.css">
+    <title>Dominican Dice</title>
 </head>
 <body>
-    <div>
-        <h1>Current Phase: </h1>
-        <div id="current-phase">1</div>
+    <div class="container">
+        <div class="logoContainer">
+            <img src="./assets/logo.png" alt="Dominican Dice Logo">
+        </div>
+        <div class="mascotContainer">
+            <img src="./assets/hutia.png" alt="Dominican Dice Mascot">
+        </div>
+        <div class="optionsContainer">
+            <select id="roundCountSelect">
+                <option value=5>5 Rounds Per Phase</option>
+                <option value=10 selected>10 Rounds Per Phase</option>
+                <option value=15>15 Rounds Per Phase</option>
+            </select>
+        </div>
+        <div class="startBtnContainer">
+            <a href="game.html">
+                <button id="startGame">Start Game</button>
+            </a>
+        </div>
+        <div class="playBtnContainer">
+            <a href="howtoplay.html">
+                <button id="howToPlay">How To Play</button>
+            </a>
+        </div>
     </div>
-    <div>
-        <h4>Current Round: </h4>
-        <div id="current-round">1</div>
-    </div>
-    <div>
-        <h4>Die Roll: </h4>
-            <button id="die-face-1" class="die-face-value">1</button>
-            <button id="die-face-2" class="die-face-value">2</button>
-            <button id="die-face-3" class="die-face-value">3</button>
-            <button id="die-face-4" class="die-face-value">4</button>
-            <button id="die-face-5" class="die-face-value">5</button>
-            <button id="die-face-6" class="die-face-value">6</button>
-    </div>
-    <div>
-        <h4>Current Round Score: </h4>
-        <div id="current-round-score">0</div>
-    </div>
-    <button id="undo">Undo</button>
-    <button id="stop">Stop</button>
-    <div>
-        <h4>Your Score: </h4>
-        <div id="player-score">0</div>
-    </div>
-    <script src="app.js"></script>
+    <script src="landing.js"></script>
 </body>
 </html>
