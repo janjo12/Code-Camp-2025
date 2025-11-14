@@ -4,8 +4,6 @@ let roundScore = 0;
 let playerScore = 0;
 let currentDieRoll = 0;
 
-let canRoll = true;
-
 let NUMBER_OF_PHASES = 4;
 let NUMBER_OF_ROUNDS = 10;
 
@@ -15,7 +13,6 @@ let currentDieRollDisplay = document.querySelector("#current-die-roll");
 let roundScoreDisplay = document.querySelector("#current-round-score");
 let playerScoreDisplay = document.querySelector("#player-score");
 let stopButton = document.querySelector("#out");
-let continueButton = document.querySelector("#in");
 
 function endGame() {
 
@@ -53,7 +50,6 @@ function incrementRoundScore() {
             break;
         case "6": roundScore += 6;
     }
-    canRoll = false;
 }
 
 function stop() {
@@ -72,24 +68,14 @@ function stop() {
     canRoll = true;
 }
 
-function stayIn() {
-    canRoll = true;
-}
-
 document.querySelectorAll(".die-face-value").forEach((button) => (button.addEventListener("click", function () {
-    if (canRoll) {
-        let thisRoll = button.id.slice(-1);
-        currentDieRoll = thisRoll;
-        incrementRoundScore();
-    }
+    let thisRoll = button.id.slice(-1);
+    currentDieRoll = thisRoll;
+    incrementRoundScore();
 })));
 
 stopButton.addEventListener("click", function () {
     stop();
-});
-
-continueButton.addEventListener("click", function () {
-    stayIn();
 });
 
 function updateScreen() {
