@@ -1,0 +1,300 @@
+body {
+    background-image: url("../assets/beach.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #fee876;
+    padding: 0 20px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas:
+        "endGame endGame total"
+        "scoreWrapper scoreWrapper scoreWrapper"
+        "scoreWrapper scoreWrapper scoreWrapper"
+        "die1 die2 die3"
+        "die4 die5 die6"
+        "undo blank stop";
+    grid-column-gap: 10px;
+    grid-row-gap: 1.5rem;
+    padding-top: 1rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.scoreWrapper {
+    grid-area: scoreWrapper;
+    background-image: url("../assets/scoreBubble.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "roundScore roundScore roundScore"
+        "phase space round";
+    padding: 2rem;
+    min-height: 350px;
+}
+
+.space {
+    grid-area: space;
+}
+
+.blank {
+    grid-area: blank;
+}
+
+.endGameBtnContainer {
+    grid-area: endGame;
+    padding-left: 1rem;
+}
+
+.endGameBtn {
+    color: #FD8C2F;
+    font-family: "Luckiest Guy";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    border-radius: 21px;
+    background: #F6F7F9;
+    box-shadow: 0 -6px 0 0 #CACDDB inset;
+    border: none;
+    display: inline-flex;
+    height: 59px;
+    padding: 0 var(--Global-Height, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.totalScoreContainer {
+    grid-area: total;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: start;
+}
+
+.totalScore {
+    color: #FD8C2F;
+    font-family: "Luckiest Guy";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    border-radius: 21px;
+    background: #F6F7F9;
+    box-shadow: 0 -6px 0 0 #CACDDB inset;
+    display: inline-flex;
+    height: 59px;
+    padding: 0 var(--Global-Height, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+#current-phase {
+    color: #FFFAFA;
+    font-family: "Luckiest Guy";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.phaseRound {
+    color: #FFFAFA;
+    font-family: "Luckiest Guy";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+}
+
+#current-round {
+    color: #FFFAFA;
+    font-family: "Luckiest Guy";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.roundScoreContainer {
+    grid-area: roundScore;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#current-round-score {
+    color: #FFFAFA;
+    font-family: "Luckiest Guy";
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 7.2px;
+}
+
+.phaseContainer {
+    grid-area: phase;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-top: 0px;
+    margin-right: -3rem;
+    transform: rotate(-5deg);
+}
+
+.roundContainer {
+    grid-area: round;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+    padding-top: 0px;
+    margin-left: -3rem;
+    transform: rotate(5deg);
+}
+
+.die1 {
+    grid-area: die1;
+}
+
+.die2 {
+    grid-area: die2;
+}
+
+.die3 {
+    grid-area: die3;
+}
+
+.die4 {
+    grid-area: die4;
+}
+
+.die5 {
+    grid-area: die5;
+}
+
+.die6 {
+    grid-area: die6;
+}
+
+.undoBtnContainer {
+    grid-area: undo;
+    border-radius: 21px;
+    background: #F3802F;
+    box-shadow: 0 -6px 0 0 #B94D1B inset;
+    display: flex;
+    height: 59px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+#undo {
+    color: #FFFAFA;
+    font-family: "Luckiest Guy";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+}
+
+.stopBtnContainer {
+    grid-area: stop;
+    display: flex;
+    height: 59px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 21px;
+    background: #F3802F;
+    box-shadow: 0 -6px 0 0 #B94D1B inset;
+}
+
+#stop {
+    color: #FFFAFA;
+    font-family: "Luckiest Guy";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FD8C2F;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.close:hover {
+    background-color: #B94D1B;
+}

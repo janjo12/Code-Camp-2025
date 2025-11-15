@@ -19,8 +19,65 @@ let playerScoreDisplay = document.querySelector("#player-score");
 let undoButton = document.querySelector("#undo");
 let stopButton = document.querySelector("#stop");
 
+// Modal functionality
+const modal = document.getElementById("phaseModal");
+const modalImage = document.querySelector("#phaseModal img");
+const closeBtn = document.querySelector(".close");
+
+// Function to show modal with phase image
+function showPhaseModal(phase) {
+    modalImage.src = `../assets/phase${phase}.png`;
+    modal.style.display = "flex";
+}
+
+// Show modal on page load
+window.addEventListener("load", () => {
+    showPhaseModal(currentPhase);
+});
+
+// Close modal when X is clicked
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close modal when clicking anywhere on the modal
+modal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
 function endGame() {
-    document.querySelector("body").textContent = `Final Score: ${playerScore}`;
+    document.querySelector("body").style.backgroundImage = "url('../assets/final.png')";
+    document.querySelector("body").style.backgroundSize = "cover";
+    document.querySelector("body").style.backgroundPosition = "center";
+    document.querySelector("body").style.backgroundRepeat = "no-repeat";
+    
+    // Hide the game container
+    document.querySelector(".container").style.display = "none";
+    
+    // Create and display the final score
+    const scoreDisplay = document.createElement("div");
+    scoreDisplay.textContent = playerScore;
+    scoreDisplay.style.position = "absolute";
+    scoreDisplay.style.top = "70%";
+    scoreDisplay.style.left = "50%";
+    scoreDisplay.style.transform = "translate(-50%, -50%)";
+    scoreDisplay.style.color = "#000";
+    scoreDisplay.style.fontFamily = "Luckiest Guy";
+    scoreDisplay.style.fontSize = "64px";
+    scoreDisplay.style.fontStyle = "normal";
+    scoreDisplay.style.fontWeight = "400";
+    scoreDisplay.style.lineHeight = "normal";
+    scoreDisplay.style.letterSpacing = "3.84px";
+    scoreDisplay.style.zIndex = "10";
+    
+    document.querySelector("body").appendChild(scoreDisplay);
+    
+    // Add click event to redirect to landing page after a short delay
+    setTimeout(() => {
+        document.querySelector("body").addEventListener("click", () => {
+            window.location.href = "../landing/landing.html";
+        });
+    }, 500);
 }
 
 function incrementRoundScore() {
@@ -91,6 +148,7 @@ function stop() {
         } else {
             currentRound = 1;
             currentPhase++;
+            showPhaseModal(currentPhase);
         }
     } else {
         currentRound++;

@@ -1,5 +1,5 @@
 body {
-    background-image: url("../assets/beach.svg");
+    background-image: url("../assets/howto.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -7,7 +7,7 @@ body {
     min-height: 100vh;
     width: 100%;
     background-color: #fee876;
-    font-family: "Luckiest Guy", cursive;
+    padding: 0 15px;
 }
 
 .container {
@@ -19,6 +19,7 @@ body {
         "closeBtn";
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    padding-top: 3.5rem;
 }
 
 button, select, input {
@@ -27,6 +28,59 @@ button, select, input {
 
 .content {
     grid-area: content;
+    font-family: "Roboto", sans-serif;
+    color: #555;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.96px;
+}
+
+#fiveDie {
+    border-radius: 4px;
+    background: #F6F7F9;
+    box-shadow: 0 -3px 0 0 #CACDDB inset;
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    padding: 2.556px 3.194px 4.472px 2.556px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+#oneDie {
+    display: flex;
+    width: 23px;
+    height: 23px;
+    padding: 2.556px 3.194px 4.472px 2.556px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+    background: #F6F7F9;
+    box-shadow: 0 -3px 0 0 #CACDDB inset;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+#twoDie {
+    display: flex;
+    width: 23px;
+    height: 23px;
+    padding: 2.556px 3.194px 4.472px 2.556px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+    background: #F6F7F9;
+    box-shadow: 0 -3px 0 0 #CACDDB inset;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
 }
 
 .banner {
@@ -35,11 +89,12 @@ button, select, input {
     align-items: center;
 }
 
-.banner img {
-    width: clamp(330px, 40vw, 300px);
+.bannerImg {
+    width: clamp(400px, 80vw, 400px);
     height: auto;
     max-width: 100%;
     grid-area: banner;
+    margin-top: 1rem;
 }
 
 .closeBtnContainer {
@@ -50,6 +105,7 @@ button, select, input {
 }
 
 .closeBtn {
+    font-family: "Luckiest Guy", cursive;
     border-radius: 21px;
     background: #F3802F;
     box-shadow: 0 -6px 0 0 #B94D1B inset;
