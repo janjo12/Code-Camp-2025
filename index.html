@@ -18,11 +18,14 @@
             <img src="./assets/hutia.png" alt="Dominican Dice Mascot">
         </div>
         <div class="optionsContainer">
-            <select class="options" id="roundCountSelect">
-                <option value=5>5 Rounds Per Phase</option>
-                <option value=10 selected>10 Rounds Per Phase</option>
-                <option value=15>15 Rounds Per Phase</option>
-            </select>
+            <div class="custom-select">
+                <div class="select-selected options">10 Rounds Per Phase</div>
+                <div class="select-items select-hide">
+                    <div data-value="5">5 Rounds Per Phase</div>
+                    <div data-value="10" class="same-as-selected">10 Rounds Per Phase</div>
+                    <div data-value="15">15 Rounds Per Phase</div>
+                </div>
+            </div>
         </div>
         <div class="startBtnContainer">
             <a href="game.html">

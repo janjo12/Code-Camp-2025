@@ -63,19 +63,20 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: clamp(250px, 80vw, 350px);
-    height: clamp(50px, 12vw, 61px);
-    flex-shrink: 0;
-    border-radius: 20px;
-    background: #F6F7F9;
     margin: 0 auto;
+    position: relative;
 }
 
-.options {
+.custom-select {
+    position: relative;
+    width: clamp(250px, 80vw, 350px);
+}
+
+.select-selected {
     background: #F6F7F9;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    border-radius: 20px;
     cursor: pointer;
     font-size: clamp(18px, 5vw, 24px);
     font-style: normal;
@@ -83,8 +84,67 @@ a {
     line-height: normal;
     letter-spacing: 1.44px;
     color: #555;
-    width: 100%;
     text-align: center;
+    height: clamp(50px, 12vw, 61px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-selected:after {
+    content: "▼";
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+}
+
+.select-items {
+    position: absolute;
+    background: white;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.select-items div {
+    padding: 1rem;
+    cursor: pointer;
+    font-size: clamp(16px, 4vw, 20px);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1.44px;
+    color: #555;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.select-items div:hover {
+    background: #F6F7F9;
+}
+
+.same-as-selected {
+    background: #F6F7F9;
+}
+
+.select-hide {
+    display: none;
+}
+
+.options {
+    background: #F6F7F9;
+    border: none;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    color: #555;
 }
 
 .startBtnContainer {
