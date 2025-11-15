@@ -10,10 +10,6 @@ body {
     padding: 0 15px;
     margin: 0;
     overflow-x: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
 }
 
 .container {
@@ -26,9 +22,6 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     padding-top: 3.5rem;
-    height: 100vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 button, select, input {
