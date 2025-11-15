@@ -60,7 +60,7 @@ function endGame() {
     scoreDisplay.style.position = "absolute";
     scoreDisplay.style.top = "65%";
     scoreDisplay.style.left = "50%";
-    scoreDisplay.style.transform = "translate(-50%, -100%)";
+    scoreDisplay.style.transform = "translate(-50%, -90%)";
     scoreDisplay.style.color = "#000";
     scoreDisplay.style.fontFamily = "Luckiest Guy";
     scoreDisplay.style.fontSize = "64px";
