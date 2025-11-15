@@ -58,7 +58,7 @@ function endGame() {
     const scoreDisplay = document.createElement("div");
     scoreDisplay.textContent = playerScore;
     scoreDisplay.style.position = "absolute";
-    scoreDisplay.style.top = "70%";
+    scoreDisplay.style.top = "65%";
     scoreDisplay.style.left = "50%";
     scoreDisplay.style.transform = "translate(-50%, -50%)";
     scoreDisplay.style.color = "#000";
