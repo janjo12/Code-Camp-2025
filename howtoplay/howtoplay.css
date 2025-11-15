@@ -1,5 +1,5 @@
 body {
-    background-image: url("../assets/howto.png");
+    background-image: url("../assets/InstructionPage.svg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -15,14 +15,13 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
     grid-template-areas:
-        "banner"
         "content"
         "closeBtn";
     grid-column-gap: 0px;
-    grid-row-gap: clamp(0.5rem, 1.5vh, 2rem);
-    padding-top: clamp(1.5rem, 4vh, 3.5rem);
+    grid-row-gap: 0;
+    padding-top: clamp(14rem, 35vh, 20rem);
     padding-bottom: clamp(1rem, 3vh, 2rem);
     max-width: 100%;
     min-height: 100vh;
@@ -90,21 +89,6 @@ button, select, input {
     display: inline-block;
     vertical-align: middle;
     flex-shrink: 0;
-}
-
-.banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bannerImg {
-    width: clamp(280px, 90vw, 400px);
-    height: auto;
-    max-width: 100%;
-    grid-area: banner;
-    margin-top: clamp(0.25rem, 1vh, 1rem);
-    margin-bottom: clamp(0.25rem, 1vh, 0.5rem);
 }
 
 .closeBtnContainer {
