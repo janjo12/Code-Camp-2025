@@ -13,8 +13,12 @@ wss.on("connection", (ws) => {
     })
 });
 
+
+/*
 const pc = new RTCPeerConnection({
   iceServers: [
     { urls: "stun:stun.l.google.com:19302" }
   ]
 });
+
+*/
