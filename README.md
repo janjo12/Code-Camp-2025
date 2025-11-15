@@ -54,27 +54,27 @@ Dominican Dice is a single-player dice rolling game where players navigate throu
 ### Landing Page
 The game starts with an attractive landing page featuring the Dominican Dice logo and mascot (Hutia). Players can select their preferred number of rounds per phase.
 
-![Landing Page](assets/landingPage.png)
+<img src="assets/landingPage.png" alt="Landing Page" width="250">
 
 ### Game Screen
 The main game interface displays the current phase, round, round score, and total score on a tropical scoreboard. Six dice buttons allow players to roll and accumulate points.
 
-![Game Screen](assets/gameScreen.png)
+<img src="assets/gameScreen.png" alt="Game Screen" width="250">
 
 ### Phase Transitions
 When advancing to a new phase, a modal displays the phase number and introduces new scoring rules.
 
-![Phase Modal](assets/phase1.png)
+<img src="assets/phase1.png" alt="Phase Modal" width="250">
 
 ### How to Play
 A comprehensive instructions page explains all game rules and phase bonuses with visual examples.
 
-![How to Play](assets/howtoPlay.png)
+<img src="assets/howtoPlay.png" alt="How to Play" width="250">
 
 ### Game End
 After completing all 4 phases, players see their final score on a custom end-game screen.
 
-![Final Score](assets/gameEnd.png)
+<img src="assets/gameEnd.png" alt="Final Score" width="250">
 
 ## 🛠 Tech Stack
 
