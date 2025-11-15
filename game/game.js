@@ -16,8 +16,8 @@ let currentPhaseDisplay = document.querySelector("#current-phase");
 let currentRoundDisplay = document.querySelector("#current-round");
 let roundScoreDisplay = document.querySelector("#current-round-score");
 let playerScoreDisplay = document.querySelector("#player-score");
-let undoButton = document.querySelector("#undo");
-let stopButton = document.querySelector("#stop");
+let undoButton = document.querySelector(".undoBtnContainer");
+let stopButton = document.querySelector(".stopBtnContainer");
 
 // Modal functionality
 const modal = document.getElementById("phaseModal");
