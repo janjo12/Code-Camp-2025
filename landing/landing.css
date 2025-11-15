@@ -8,6 +8,10 @@ body {
     width: 100%;
     background-color: #fee876;
     font-family: "Luckiest Guy", cursive;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 a {
@@ -25,10 +29,12 @@ a {
         "startBtn"
         "playBtn";
     grid-column-gap: 0px;
-    row-gap: 1rem;
-    min-height: 90vh;
-    margin-bottom: 2rem;
-    padding: 1rem;
+    row-gap: clamp(0.5rem, 1.5vh, 1rem);
+    min-height: 100vh;
+    margin-bottom: clamp(0.5rem, 2vh, 2rem);
+    padding: clamp(0.5rem, 1.5vh, 1rem);
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .logoContainer {
@@ -40,9 +46,11 @@ a {
 }
 
 .logoContainer img {
-    width: clamp(330px, 40vw, 300px);
+    width: clamp(380px, 98vw, 600px);
     height: auto;
     max-width: 100%;
+    max-height: clamp(160px, 40vh, 280px);
+    object-fit: contain;
 }
 
 .mascotContainer {
@@ -50,12 +58,15 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: clamp(0.25rem, 1vh, 1rem) 0;
 }
 
 .mascotContainer img {
-    width: clamp(220px, 40vw, 300px);
+    width: clamp(190px, 55vw, 280px);
     height: auto;
     max-width: 100%;
+    max-height: clamp(130px, 28vh, 240px);
+    object-fit: contain;
 }
 
 .optionsContainer {
@@ -69,7 +80,7 @@ a {
 
 .custom-select {
     position: relative;
-    width: clamp(250px, 80vw, 350px);
+    width: clamp(180px, 80vw, 320px);
 }
 
 .select-selected {
@@ -78,14 +89,14 @@ a {
     padding: 0.5rem 3rem 0.5rem 1rem;
     border-radius: 20px;
     cursor: pointer;
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(14px, 4vw, 20px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.44px;
     color: #555;
     text-align: center;
-    height: clamp(50px, 12vw, 61px);
+    height: clamp(38px, 7vh, 55px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,14 +170,14 @@ a {
     background: #F3802F;
     box-shadow: 0 -6px 0 0 #B94D1B inset;
     display: flex;
-    width: clamp(250px, 80vw, 350px);
-    height: clamp(50px, 12vw, 59px);
+    width: clamp(180px, 80vw, 320px);
+    height: clamp(38px, 7vh, 55px);
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
     color: #FFFAFA;
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(14px, 4vw, 20px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -184,7 +195,7 @@ a {
 
 .playBtn {
     color: #B94D1B;
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(14px, 4vw, 20px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -192,7 +203,7 @@ a {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: clamp(0.5rem, 1vh, 1rem);
 }
 
 button, select, input {

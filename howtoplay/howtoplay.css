@@ -7,9 +7,10 @@ body {
     min-height: 100vh;
     width: 100%;
     background-color: #fee876;
-    padding: 0 15px;
+    padding: 0 clamp(10px, 3vw, 15px);
     margin: 0;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .container {
@@ -20,8 +21,12 @@ body {
         "content"
         "closeBtn";
     grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    padding-top: 3.5rem;
+    grid-row-gap: clamp(0.5rem, 1.5vh, 2rem);
+    padding-top: clamp(1.5rem, 4vh, 3.5rem);
+    padding-bottom: clamp(1rem, 3vh, 2rem);
+    max-width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 button, select, input {
@@ -32,11 +37,13 @@ button, select, input {
     grid-area: content;
     font-family: "Roboto", sans-serif;
     color: #555;
-    font-size: 16px;
+    font-size: clamp(13px, 3.2vw, 16px);
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.4;
     letter-spacing: 0.96px;
+    padding: clamp(0.5rem, 1.5vh, 1rem);
+    max-width: 100%;
 }
 
 #fiveDie {
@@ -92,11 +99,12 @@ button, select, input {
 }
 
 .bannerImg {
-    width: clamp(400px, 80vw, 400px);
+    width: clamp(280px, 90vw, 400px);
     height: auto;
     max-width: 100%;
     grid-area: banner;
-    margin-top: 1rem;
+    margin-top: clamp(0.25rem, 1vh, 1rem);
+    margin-bottom: clamp(0.25rem, 1vh, 0.5rem);
 }
 
 .closeBtnContainer {
@@ -104,6 +112,7 @@ button, select, input {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: clamp(0.5rem, 1.5vh, 1rem) 0;
 }
 
 .closeBtn {
@@ -112,20 +121,21 @@ button, select, input {
     background: #F3802F;
     box-shadow: 0 -6px 0 0 #B94D1B inset;
     display: flex;
-    width: clamp(250px, 80vw, 350px);
-    height: clamp(50px, 12vw, 59px);
+    width: clamp(200px, 85vw, 350px);
+    height: clamp(40px, 8vh, 59px);
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
     color: #FFFAFA;
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(16px, 4.5vw, 24px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.44px;
     border: none;
     cursor: pointer;
+    margin-bottom: clamp(0.5rem, 2vh, 2rem);
 }
 
 a {
