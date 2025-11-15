@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="multiplayergame.css">
+    <title>Dominican Dice</title>
 </head>
 <body>
+    <a href="../landing/landing.html">
+        <button>Home</button>
+    </a>
+    <div>
+        <h1>Current Phase: </h1>
+        <div id="current-phase">1</div>
+    </div>
+    <div>
+        <h4>Current Round: </h4>
+        <div id="current-round">1</div>
+    </div>
+    <div>
+        <h4>Die Roll: </h4>
+            <div id="die-roll"></div>
+    </div>
+    <div>
+        <h4>Current Round Score: </h4>
+        <div id="current-round-score">0</div>
+    </div>
+    <button id="continue">Continue</button>
+    <button id="stop">Stop</button>
+    <div>
+        <h4>Your Score: </h4>
+        <div id="player-score">0</div>
+    </div>
     <script src="multiplayergame.js"></script>
 </body>
 </html>
