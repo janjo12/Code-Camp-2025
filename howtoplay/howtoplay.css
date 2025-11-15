@@ -1,0 +1,75 @@
+body {
+    background-image: url("../assets/beach.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #fee876;
+    font-family: "Luckiest Guy", cursive;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        "banner"
+        "content"
+        "closeBtn";
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+button, select, input {
+    font-family: inherit;
+}
+
+.content {
+    grid-area: content;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    width: clamp(330px, 40vw, 300px);
+    height: auto;
+    max-width: 100%;
+    grid-area: banner;
+}
+
+.closeBtnContainer {
+    grid-area: closeBtn;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeBtn {
+    border-radius: 21px;
+    background: #F3802F;
+    box-shadow: 0 -6px 0 0 #B94D1B inset;
+    display: flex;
+    width: clamp(250px, 80vw, 350px);
+    height: clamp(50px, 12vw, 59px);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    color: #FFFAFA;
+    font-size: clamp(18px, 5vw, 24px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
